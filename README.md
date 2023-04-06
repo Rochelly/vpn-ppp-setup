@@ -32,4 +32,5 @@ If you have issues with the VPN connection, try the following:
 * Try restarting the VPN connection by running vpn-stop followed by vpn-start.
 ## Disclaimer
 Use this script at your own risk. The author is not responsible for any damages or losses caused by the use of this script.
+
 *NOTE:* The server must be prepared to accept the creation of the VPN, such as authentication by keys and permission to execute usr/sbin/pppd.
