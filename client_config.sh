@@ -34,14 +34,15 @@ fi
 
 # Add VPN shortcuts for bash and zsh
 cat <<EOF >> /home/$LOCAL_USER/.bashrc
-alias vpn-start="sudo pppd updetach noauth silent nodeflate pty '/usr/bin/ssh $REMOTE_USER@$IP_GATEWAY -i /home/$LOCAL_USER/.ssh/id_rsa' ipparam vpn $LOCAL_POINT:$END_POINT; sudo ip route replace $REMOTE_NET via $END_POINT; echo -e '\e\033[0;32m  VPN Created - Connected   \e[m';"
-alias vpn-stop="sudo killall pppd; sudo ip route del $REMOTE_NET via $END_POINT; echo -e '\e\033[0;31m  VPN Deleted - Disconnected   \e[m';"
+alias vpn-start="sudo pppd updetach noauth silent nodeflate pty '/usr/bin/ssh $REMOTE_USER@$IP_GATEWAY -i /home/$LOCAL_USER/.ssh/id_rsa' ipparam vpn $LOCAL_POINT:$END_POINT; sudo ip route replace $REMOTE_NET via $END_POINT; echo -e '\033[0;32mVPN Created - Connected\e[0m';"
+alias vpn-stop="sudo killall pppd; sudo ip route del $REMOTE_NET via $END_POINT; echo -e '\033[0;31mVPN Deleted - Disconnected\e[0m';"
 EOF
 
 cat <<EOF >> /home/$LOCAL_USER/.zshrc
-alias vpn-start="sudo pppd updetach noauth silent nodeflate pty '/usr/bin/ssh $REMOTE_USER@$IP_GATEWAY -i /home/$LOCAL_USER/.ssh/id_rsa' ipparam vpn $LOCAL_POINT:$END_POINT; sudo ip route replace $REMOTE_NET via $END_POINT; echo -e '\e\033[0;32m  VPN Created - Connected   \e[m';"
-alias vpn-stop="sudo killall pppd; sudo ip route del $REMOTE_NET via $END_POINT; echo -e '\e\033[0;31m  VPN Deleted - Disconnected   \e[m';"
+alias vpn-start="sudo pppd updetach noauth silent nodeflate pty '/usr/bin/ssh $REMOTE_USER@$IP_GATEWAY -i /home/$LOCAL_USER/.ssh/id_rsa' ipparam vpn $LOCAL_POINT:$END_POINT; sudo ip route replace $REMOTE_NET via $END_POINT; echo -e '\033[0;32mVPN Created - Connected\e[0m';"
+alias vpn-stop="sudo killall pppd; sudo ip route del $REMOTE_NET via $END_POINT; echo -e '\033[0;31mVPN Deleted - Disconnected\e[0m';"
 EOF
+
 
 # Reload bashrc and zshrc to apply changes
 source /home/$LOCAL_USER/.bashrc
